@@ -140,3 +140,14 @@ cartButton.onclick = () => {
     "The total amount is " + finalDollars + "$ and " + finalCents + " cents"
   );
 };
+
+let link='https://api.whatsapp.com/send?phone=9317524556&text=Order%20Details%20:';
+
+function updateWhatsAppLink(){
+  for(let index = 0; index < items.length; index++){
+    if(items[index].quantity != 0){
+      link += "%0A" + items[index].name + "$%20" + items[index].quantity;
+    }
+  }
+  link += "%0A" + "Total%20price:%20:$" + finalDollars + "%20" + finalCents;
+}
